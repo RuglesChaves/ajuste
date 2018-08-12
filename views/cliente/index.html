@@ -101,6 +101,7 @@
                     <th width="120px">Tipo Cadastro</th>
                     <th width="120px">Tipo Cliente</th>
                     <th>Tabela de Preço</th>
+                    <th>NIveis de Bloqueio</th>
                     <th width="90">Cartões</th>
                     <th>Vagas</th>
                     <th width="70px">Ativo</th>
@@ -137,6 +138,7 @@
                                 {{/if}}
                             {{/compare}}
                         </td>
+                        <td>{{nivel}}</td>
                         <td width="90">{{codigos}}</td>
                         <td align="center">{{quantidade_vagas}}</td>
                         <td align="center" class="{{#compare ativo '===' true}}green{{else}}red{{/compare}}">{{#compare ativo '===' true}}Sim{{else}}Não{{/compare}}</td>

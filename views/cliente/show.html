@@ -129,8 +129,7 @@
 		            </div>
 				</div>
 				<br />
-		
-				
+	
 				<div class="control-group consistencia_de_vagas {{#compare result.tipo '!==' 'Credenciado'}}display-none{{/compare}}">
 		            <label class="control-label">*Consistência de vagas</label>
 		            <div class="controls">
@@ -141,22 +140,19 @@
 		            </div>
 				</div>
 
-
-				<!--LIBERAÇÂO POR EQUIPAMENTO RUGLES -->
 				<div class="control-group consistencia_de_vagas {{#compare result.tipo '!==' 'Credenciado'}}display-none{{/compare}}">
 					<div class="control-group">
 							<label class="control-label">Nivel de Bloqueio</label>
 					</div>	
 					<div class="control-group consistencia_de_vagas">
-						<select name="nivel" id="nivel"><!--Alteração-->
+					    <select name="nivel" id="nivel">
 							{{#bloqueio}}
 								<option value="{{nome}}">{{nome}}</option>
 							{{/bloqueio}}
 						</select>
 					</div>
 				</div><br>
-
-						
+									
 		        <div class="control-group">
 		            <label class="control-label">*Ativo</label>
 		            <div class="controls">                

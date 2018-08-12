@@ -3,13 +3,13 @@
     <fieldset>
 
        <div class="control-group">
-           <label class="control-label">*Nome do Nivel</label>
+           <label class="control-label"> Nome do Nivel</label>
            <div class="controls"><input type="text" name="nome" maxlength="17" class="uppercase" value="{{result.nome}}" required></div><!-- .controls -->
        </div></br><!-- .control-group -->
        <div class="control-group">
 
            
-           <label class="control-label">Ip do Equipamento</label>
+           <label class="control-label"> Ip do Equipamento</label>
            <div class="controls">
 
                <a href="#" class="btn btn-success btn-adicionar-modelo" data-original-title="" title="" class="mascara-ip" ><i class="fa fa-plus"></i> Adicionar Ip (F4)</a>
@@ -27,38 +27,31 @@
        </div><!-- .control-group -->
 
        <br><div class="control-group">
-            <label class="control-label">*Liberação Feriado</label>
-            <div class="controls">  
-                    <select name="feriado" id="feriado"><!--Alteração-->              
+            <h4><label class="control-label"> Liberação Feriado</label></h4>
+            <div class="controls"  required>             
                 {{#checked result.feriado}}
-                        <option name="feriado" value="true" required>SIM</option>
-                        <option name="feriado" value="false" required>NÃO</option>
+                    <label><input type="radio" name="feriado" id="feriado" value="true" > SIM</label>&nbsp;
+                    <label><input type="radio" name="feriado" id="feriado" value="false" > NÃO</label>
                 {{/checked}}
-                    </select>
+                    
             </div>
         </div>
 
        
 
-       <br><div><!--DIV LIBERAÇÂO POR NIVEIS ENTRADA E SAIDA-->
-        <div class="control-group">
-                <label class="control-label">Liberação de Acesso</label>
+   <br><div class="control-group">
+        <h4><label class="control-label"> Liberação Sentido</label></h4>
+        <div class="row">                
+            {{#checked result.nivel}}
+                <label><input type="radio" name="nivel" id="nivel" value="ambos" > AMBOS</label>&nbsp;
+                <label><input type="radio" name="nivel" id="nivel" value="entrada" > ENTRADA</label>
+                <label><input type="radio" name="nivel" id="nivel" value="saida" > SAIDA</label>
+            {{/checked }}
         </div>
-        <div class="row">
-                <select name="nivel" id="nivel"><!--Alteração-->
-                {{#checked result.nivel}} 
-                    <option name="nivel" value="ambos" data-pf-label="Nivel de Bloqueio" data-pj-label=""  maxlength="16" class="uppercase" data-pf-required="false" data-pj-required="false" data-pf-visible="true" data-pj-visible="true" class="" > AMBOS OS SENTIDOS</option>
-                    <option name="nivel" value="entrada" data-pf-label="Nivel de Bloqueio" data-pj-label="" maxlength="16" class="uppercase" data-pf-required="false" data-pj-required="false" data-pf-visible="true" data-pj-visible="true" class="" >  LIBERAÇÃO DE ENTRADA</option>
-                    <option name="nivel" value="saida" data-pf-label="Nivel de Bloqueio" data-pj-label="" maxlength="16" class="uppercase" data-pf-required="false" data-pj-required="false" data-pf-visible="true" data-pj-visible="true" class="" >  LIBERAÇÃO DE SAIDA</option>
-                {{/checked}}
+    </div>
 
-            </select>
-                              
-       </div>
-   </div><!--FIM DIV LIBERAÇÂO POR NIVEIS ENTRADA E SAIDA-->
-
-   <div><label><h3><label>Dias de Semana</label></Dias></h3></div>
-            	<div class="row" required>
+   <br><div><h4><label> Dias de Semana</label></h4></div>
+            	<div class="row">
             		{{#checkedMultiple result.semana}}
 	            		<div class="col-lg-4"><label><input type="checkbox" name="semana" id="semana"  value="Seg"> Seg</label></div>
 	            		<div class="col-lg-4"><label><input type="checkbox" name="semana" id="semana" value="Ter"> Ter</label></div>
@@ -70,12 +63,11 @@
 					{{/checkedMultiple}}
 				</div>
                 <hr />
-                
-
-       </fieldset>
-       {{>form-footer}}
+    </fieldset>
+      
 
    <input type="hidden" name="id" value="{{result.id}}"></td>
+   {{>form-footer}}
 </form>
 
 <div class="modelo item clone">
