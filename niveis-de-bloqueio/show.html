@@ -1,0 +1,145 @@
+<div id="tabs">
+        <form action="/{{route}}" method="{{ternary isEdit 'put' 'post'}}" class="form-gerenciador-de-tabelas form-horizontal well">
+    
+            <fieldset>
+
+                        <ul>
+                            <li>
+                                <a href="#dados">Dados gerais</a>
+                            </li>
+                            <li>
+                                <a href="#configs">Configuração de tabelas</a>
+                            </li>
+                        </ul>
+    
+              
+    
+                <div id="dados" style="display: inline-block;">
+                    <div class="control-group">
+                        <label class="control-label">*Nome do gerenciador</label>
+                        <div class="controls">
+                            <input type="text" name="nome" maxlength="30" class="uppercase" value="{{result.nome}}" required>
+                        </div>
+                  
+                    </div>
+                </div>
+                <div id="configs" style="display: inline-block;">
+                    <a href="#" class="btn btn-success btn-adicionar-configs">
+                        <i class="fa fa-plus"></i> Adicionar Configuração</a>
+                    </br>
+                    </br>    
+                        <div class="configs container">
+                            {{#result.configs}}
+                            <div class="configs item">
+                            {{#checkedMultiple dias}}
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Segunda-Feira"> Segunda</label>
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Terça-Feira"> Terça</label>
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Quarta-Feira"> Quarta</label>
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Quinta-Feira"> Quinta</label>
+                                        
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Sexta-Feira"> Sexta</label>
+                                    
+                                    </br>
+                                            
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Sábado"> Sábado</label>
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Domingo"> Domingo</label>
+                
+                                    <label>
+                                        <input type="checkbox" name="configs[{{@index}}][dias]" value="Feriado"> Feriado</label>
+                                    {{/checkedMultiple}}
+          
+                                    </br>
+                                    <label >Horário Inicial</label>
+                                        <input type="text" name="configs[{{@index}}][hora_inicio]" value="{{hora_inicio}}" class="mascara-cobranca-hora" >h 
+                                    </br>
+                                    </br>
+                                    <label >Equipamento</label>
+                                    </br>
+                                    <label>
+                                            <input type="text" name="configs[{{@index}}][sentido]" value="{{sentido}}" ></label>    
+                                    </br>
+                                    </br>
+                                    <label >Horário Final</label>
+                                        <input type="text" name="configs[{{@index}}][hora_fim]" value="{{hora_fim}}" class="mascara-cobranca-hora" >h 
+                            
+                                    <div>
+                                       <center> <a href="#" class="btn btn-danger btn-excluir-item" title="Excluir Configuração"><i class="fa fa-trash-o no-padding"></i> </a></center>
+                                       </div> 
+                            </div>
+                            {{/result.configs}}
+                        </div>
+    
+                </div>
+    
+                {{>form-footer}}
+    
+            </fieldset>
+    
+            <input type="hidden" name="id" value="{{result.id}}">
+            </td>
+        </form>
+        
+    </div>
+    
+    <div class="configs item clone">
+        
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Segunda-Feira"> Segunda</label>
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Terça-Feira"> Terça</label>
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Quarta-Feira"> Quarta</label>
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Quinta-Feira"> Quinta</label>
+                
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Sexta-Feira"> Sexta</label>
+            </br>
+                    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Sábado"> Sábado</label>
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Domingo"> Domingo</label>
+    
+            <label>
+                <input type="checkbox" name="configs[{index}][dias]" value="Feriado"> Feriado</label>
+                    
+            </br>
+            <label >Horário Inicial</label>
+                <input type="text" name="configs[{index}][hora_inicio]" value="{{hora_inicio}}" class="mascara-cobranca-hora" >h 
+            </br>
+            </br>
+            <label >Equipamento</label>
+            </br>  
+                {{#entrada}}       
+                    <label><input type="radio" name="configs[{{@index}}][sentido]" value="{{nome}}" > {{nome}}</label>                              
+                {{/entrada}}
+            </br> 
+            </br> 
+    
+            <label >Horário Final</label>
+                <input type="text" name="configs[{index}][hora_fim]" value="{{hora_fim}}" class="mascara-cobranca-hora" >h 
+
+           <div>
+                <center> <a href="#" class="btn btn-danger btn-excluir-item" title="Excluir Configuração"><i class="fa fa-trash-o no-padding"></i> </a></center>
+            </div> 
+        
+       
+    </div>
