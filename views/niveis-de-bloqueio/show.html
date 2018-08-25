@@ -1,18 +1,8 @@
 <div id="tabs">
         <form action="/{{route}}" method="{{ternary isEdit 'put' 'post'}}" class="form-gerenciador-de-tabelas form-horizontal well">
     
-            <fieldset>
+           
 
-                        <ul>
-                            <li>
-                                <a href="#dados">Dados gerais</a>
-                            </li>
-                            <li>
-                                <a href="#configs">Configuração de tabelas</a>
-                            </li>
-                        </ul>
-    
-              
     
                 <div id="dados" style="display: inline-block;">
                     <div class="control-group">
@@ -20,6 +10,15 @@
                         <div class="controls">
                             <input type="text" name="nome" maxlength="30" class="uppercase" value="{{result.nome}}" required>
                         </div>
+                    </br>
+                    </br>
+                    <label >Equipamento</label>
+                    </br>  
+                        {{#entrada}}       
+                            <label><input type="checkbox" name="configs[{{@index}}][sentido]" value="{{nome}}" > {{nome}}</label>                              
+                        {{/entrada}}
+                    </br> 
+                    </br> 
                   
                     </div>
                 </div>
@@ -67,8 +66,12 @@
                                     </br>
                                     <label >Equipamento</label>
                                     </br>
-                                    <label>
-                                            <input type="text" name="configs[{{@index}}][sentido]" value="{{sentido}}" ></label>    
+                                    <div class="item sentido">
+                                        <label>
+                                            <input type="text" name="configs[{{@index}}][sentido]" value="{{sentido}}" ></label>  
+                                        <a href="#" class="btn btn-danger btn-excluir-item sentido"><i class="fa fa-trash-o no-padding"></i> </a>  
+
+                                    </div>
                                     </br>
                                     </br>
                                     <label >Horário Final</label>
@@ -85,7 +88,7 @@
     
                 {{>form-footer}}
     
-            </fieldset>
+            
     
             <input type="hidden" name="id" value="{{result.id}}">
             </td>
@@ -126,13 +129,15 @@
                 <input type="text" name="configs[{index}][hora_inicio]" value="{{hora_inicio}}" class="mascara-cobranca-hora" >h 
             </br>
             </br>
+            <!--
             <label >Equipamento</label>
             </br>  
                 {{#entrada}}       
-                    <label><input type="radio" name="configs[{{@index}}][sentido]" value="{{nome}}" > {{nome}}</label>                              
+                    <label><input type="checkbox" name="configs[{{@index}}][sentido]" value="{{nome}}" > {{nome}}</label>                              
                 {{/entrada}}
             </br> 
             </br> 
+           -->
     
             <label >Horário Final</label>
                 <input type="text" name="configs[{index}][hora_fim]" value="{{hora_fim}}" class="mascara-cobranca-hora" >h 
