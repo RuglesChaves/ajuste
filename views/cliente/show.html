@@ -142,14 +142,21 @@
 
 				<div class="control-group consistencia_de_vagas {{#compare result.tipo '!==' 'Credenciado'}}display-none{{/compare}}">
 					<div class="control-group">
-							<label class="control-label">Nivel de Bloqueio</label>
+							<label class="control-label">Nivel de Bloqueio</label>&nbsp;
 					</div>	
-					<div class="control-group consistencia_de_vagas">
-					    <select name="nivel" id="nivel">
+					
+					<div class="row">
+					    
+
+						{{#checked result.nivel}}
 							{{#bloqueio}}
-								<option value="{{nome}}">{{nome}}</option>
+								
+									<label><input type="radio" name="nivel" value="{{nome}}" > {{nome}}</label>&nbsp;
+								
 							{{/bloqueio}}
-						</select>
+						{{/checked}}
+							
+						
 					</div>
 				</div><br>
 									
