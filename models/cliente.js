@@ -41,7 +41,7 @@ var schema = new mongoose.Schema({
 	data_nascimento: String,
     data_cadastro: { type: Date, default: Date.now },
 	ativo: { type: Boolean },
-	nivel: String,
+	nivel: { type: String, default: 'LIVRE', uppercase: true },
 	telefone: [String],
     codigos: [String], // talvez limite bastante se usar number
 	endereco: [{ 

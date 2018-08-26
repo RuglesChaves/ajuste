@@ -8,11 +8,12 @@ var schema = new mongoose.Schema({
     _usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'usuario' },
     'ultima-atualizacao': Date,
     nome: { type: String, uppercase: true },
-    equipamento: String,
+    
     configs:[{
+        _id : false,
         hora_inicio: String,
         hora_fim: String,
-        sentido: String,
+        sentido: { type: String, default: 'ACESSO LIVRE' },
         dias: [{ type: String }],
        
     }]
